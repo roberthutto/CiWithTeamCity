@@ -1,0 +1,26 @@
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenCentral()
+    }
+    dependencies {
+        def springBootVersion = '1.2.1.RELEASE'
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    def springBootVersion = '1.2.1.RELEASE'
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+}
