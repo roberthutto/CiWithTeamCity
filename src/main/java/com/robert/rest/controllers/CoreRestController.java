@@ -15,10 +15,11 @@ public class CoreRestController {
 
 
     @RequestMapping(value = "/reflect/{value}", method = RequestMethod.GET)
-    public ResponseEntity<Message> getOffers(@PathVariable String value) {
-        Message message = new Message();
-        message.setValue(value);
-        return new ResponseEntity<>(message, HttpStatus.OK);
+    public ResponseEntity<?> getOffers(@PathVariable String value) {
+
+        return new ResponseEntity<>(new Object() {
+            public String message = value;
+        }, HttpStatus.OK);
     }
 
 }
