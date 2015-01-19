@@ -1,6 +1,7 @@
 apply plugin: 'war'
+apply plugin: 'spring-boot'
 
-sourceCompatibility = 1.8
+//Do I need sourceCompatibility = 1.8
 version = '1.0'
 
 buildscript {
@@ -18,9 +19,13 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
     def springBootVersion = '1.2.1.RELEASE'
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+
+    //Dependency is provided by other spring boot deps but this is needed move to lib-provided
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat:${springBootVersion}")
     testCompile group: 'junit', name: 'junit', version: '4.11'
 
 }
