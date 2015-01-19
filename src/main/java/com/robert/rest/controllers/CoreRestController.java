@@ -18,7 +18,7 @@ public class CoreRestController {
     public ResponseEntity<Message> getOffers(@PathVariable String value) {
         Message message = new Message();
         message.setValue(value);
-        return new ResponseEntity<>(message, HttpStatus.OK);
+        return new ResponseEntity<>(messag, HttpStatus.OK);
     }
 
 }
