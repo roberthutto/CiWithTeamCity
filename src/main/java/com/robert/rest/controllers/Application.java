@@ -8,23 +8,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ImportResource;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.EnableAsync;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@ImportResource("classpath:spring-config.xml")
-@EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class, RabbitAutoConfiguration.class })
-@EnableAsync
-@EnableScheduling
+
+//@ImportResource() used to import a spring-config.xml
+@EnableAutoConfiguration()
+//@EnableAsync
+//@EnableScheduling
 @ComponentScan
 @RestController
 public class Application {
